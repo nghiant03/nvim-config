@@ -1,0 +1,5 @@
+require("plugins.lsp.lsp_config")
+require("plugins.lsp.completions")
+require("plugins.lsp.trouble")
+require("plugins.lsp.ufo")
+require("plugins.lsp.fold-preview")

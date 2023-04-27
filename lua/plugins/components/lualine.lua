@@ -1,7 +1,7 @@
 require('lualine').setup{
   options = {
     icons_enabled = true,
-    disabled_filetypes = {"NvimTree", "packer", "aerial"},
+    disabled_filetypes = {"NvimTree", "packer", "aerial", "startup"},
   },
   sections = {
     lualine_a = {

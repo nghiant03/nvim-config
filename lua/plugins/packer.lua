@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   use {'akinsho/bufferline.nvim', tag = 'v3.*'}
   use 'tiagovla/scope.nvim'
   use 'folke/tokyonight.nvim'
+  use 'startup-nvim/startup.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'numToStr/Comment.nvim'

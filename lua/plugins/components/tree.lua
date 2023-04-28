@@ -8,10 +8,6 @@ vim.opt.termguicolors = true
 
 
 require("nvim-tree").setup {
-  update_focused_file = {
-    enable = true,
-    update_root = true,
-  },
   hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = true,
   modified = {
@@ -26,4 +22,3 @@ require("nvim-tree").setup {
 }
 
 vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
---FIX: switching when open help files

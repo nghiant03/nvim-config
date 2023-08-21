@@ -124,15 +124,30 @@ _G.packer_plugins = {
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  neotest = {
+    loaded = true,
+    path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
+  ["nvim-bqf"] = {
+    loaded = true,
+    path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-bqf",
+    url = "https://github.com/kevinhwang91/nvim-bqf"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-hlslens"] = {
     loaded = true,
@@ -148,11 +163,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-search-and-replace"] = {
-    loaded = true,
-    path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-search-and-replace",
-    url = "https://github.com/s1n7ax/nvim-search-and-replace"
   },
   ["nvim-tree.lua"] = {
     loaded = true,

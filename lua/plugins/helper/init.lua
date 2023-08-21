@@ -1,3 +1,4 @@
+require("plugins.helper.aerial")
 require("plugins.helper.treesitter")
 require("plugins.helper.autopairs")
 require("plugins.helper.lastplace")

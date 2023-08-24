@@ -17,7 +17,6 @@ return require('packer').startup(function(use)
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
   -- Components
-  use 'stevearc/aerial.nvim'
   use {'akinsho/bufferline.nvim', tag = 'v3.*'}
   use 'mfussenegger/nvim-dap'
   use 'nvim-lualine/lualine.nvim'
@@ -27,6 +26,7 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-treesitter/nvim-treesitter-context'
   -- Helper
+  use 'stevearc/aerial.nvim'
   use 'windwp/nvim-autopairs'
   use 'kevinhwang91/nvim-bqf'
   use 'numToStr/Comment.nvim'

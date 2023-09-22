@@ -17,7 +17,6 @@ return require('packer').startup(function(use)
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
   -- Components
-  use {'akinsho/bufferline.nvim', tag = 'v3.*'}
   use 'mfussenegger/nvim-dap'
   use 'nvim-lualine/lualine.nvim'
   use {'nvim-telescope/telescope.nvim', tag = '0.1.1'}

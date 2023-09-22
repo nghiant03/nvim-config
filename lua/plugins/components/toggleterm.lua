@@ -1,5 +1,7 @@
 require("toggleterm").setup {
   size = 20,
+  autochdir = true,
+  auto_scroll = true,
   open_mapping = [[<c-\>]],
   hide_numbers = true,
   shade_terminals = true,
@@ -14,4 +16,3 @@ require("toggleterm").setup {
     border = "curved",
   },
 }
---WARNING: unverified copied config

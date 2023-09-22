@@ -2,7 +2,6 @@ require("toggleterm").setup {
   size = 20,
   autochdir = true,
   auto_scroll = true,
-  open_mapping = [[<c-\>]],
   hide_numbers = true,
   shade_terminals = true,
   shading_factor = 2,

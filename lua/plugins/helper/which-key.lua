@@ -9,5 +9,13 @@ wk.register({
       b = {builtin.buffers, "Find Buffer"},
       h = {builtin.help_tags, "Find Help Tag"}
     }
-  }
+  },
+  ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", "Toggle Terminal"}
 })
+wk.register({
+  ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", "Toggle Terminal"}
+  },
+  {
+  mode = "t"
+  }
+)

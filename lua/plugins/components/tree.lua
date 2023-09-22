@@ -18,5 +18,13 @@ require("nvim-tree").setup {
   },
   live_filter = {
     always_show_folders = false
+  },
+  update_focused_file = {
+    enable = true,
+  },
+  actions = {
+    change_dir = {
+      global = true
+    }
   }
 }

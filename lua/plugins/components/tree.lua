@@ -20,5 +20,3 @@ require("nvim-tree").setup {
     always_show_folders = false
   }
 }
-
-vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")

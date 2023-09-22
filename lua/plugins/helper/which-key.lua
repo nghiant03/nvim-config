@@ -10,7 +10,8 @@ wk.register({
       h = {builtin.help_tags, "Find Help Tag"}
     }
   },
-  ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", "Toggle Terminal"}
+  ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", "Toggle Terminal"},
+  ["<C-n>"] = {"<cmd>NvimTreeFindFileToggle<cr>", "Toggle File Explorer"}
 })
 wk.register({
   ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", "Toggle Terminal"}

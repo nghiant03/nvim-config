@@ -11,7 +11,8 @@ wk.register({
     }
   },
   ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", "Toggle Terminal"},
-  ["<C-n>"] = {"<cmd>NvimTreeFindFileToggle<cr>", "Toggle File Explorer"}
+  ["<C-n>"] = {"<cmd>NvimTreeFindFileToggle<cr>", "Toggle File Explorer"},
+  ["[c"] = {function() require("treesitter-context").go_to_context() end, "Go To Context"}
 })
 wk.register({
   ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", "Toggle Terminal"}

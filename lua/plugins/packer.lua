@@ -55,7 +55,10 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
-  use 'anuvyklack/fold-preview.nvim'
+  use {
+    'anuvyklack/fold-preview.nvim',
+    requires = 'anuvyklack/keymap-amend.nvim'
+  }
   use 'folke/trouble.nvim'
   -- Themes
   use 'onsails/lspkind.nvim'
@@ -64,7 +67,6 @@ return require('packer').startup(function(use)
   use 'startup-nvim/startup.nvim'
   use 'kevinhwang91/nvim-ufo'
   use 'kevinhwang91/promise-async'
-  use 'anuvyklack/keymap-amend.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

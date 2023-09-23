@@ -4,6 +4,7 @@ require('aerial').setup({
      default_direction = "prefer_right"
   },
   close_automatic_event = {"unfocus"},
+  nerd_font = true,
   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
   on_attach = function(bufnr)
     -- Jump forwards/backwards with '{' and '}'
@@ -13,4 +14,3 @@ require('aerial').setup({
 })
 -- You probably also want to set a keymap to toggle aerial
 vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle<CR>')
---TODO: add function icon

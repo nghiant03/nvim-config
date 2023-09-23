@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
   use 'anuvyklack/fold-preview.nvim'
   use 'folke/trouble.nvim'
   -- Themes
+  use 'onsails/lspkind.nvim'
   use 'nvim-tree/nvim-web-devicons'
   use 'folke/tokyonight.nvim'
   use 'startup-nvim/startup.nvim'

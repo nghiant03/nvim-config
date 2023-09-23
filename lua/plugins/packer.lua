@@ -36,6 +36,7 @@ return require('packer').startup(function(use)
   use 'tiagovla/scope.nvim'
   use 'folke/todo-comments.nvim'
   use 'nvim-treesitter/nvim-treesitter'
+  use 'abecodes/tabout.nvim'
   use {
     "folke/which-key.nvim",
     config = function()

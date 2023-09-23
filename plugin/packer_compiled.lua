@@ -214,6 +214,11 @@ _G.packer_plugins = {
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/startup.nvim",
     url = "https://github.com/startup-nvim/startup.nvim"
   },
+  ["tabout.nvim"] = {
+    loaded = true,
+    path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/tabout.nvim",
+    url = "https://github.com/abecodes/tabout.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/telescope.nvim",

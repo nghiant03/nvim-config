@@ -1,9 +1,9 @@
 require('aerial').setup({
+  backends = {"lsp", "treesitter"},
   layout = {
-     default_direction = "left"
+     default_direction = "prefer_right"
   },
---FIX: automatic event not working
-  close_automatic_event = {"switch_buffer"},
+  close_automatic_event = {"unfocus"},
   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
   on_attach = function(bufnr)
     -- Jump forwards/backwards with '{' and '}'

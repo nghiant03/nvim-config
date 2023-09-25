@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-hlslens",
     url = "https://github.com/kevinhwang91/nvim-hlslens"
   },
-  ["nvim-lastplace"] = {
-    loaded = true,
-    path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-lastplace",
-    url = "https://github.com/ethanholz/nvim-lastplace"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -203,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/promise-async",
     url = "https://github.com/kevinhwang91/promise-async"
+  },
+  ["remember.nvim"] = {
+    loaded = true,
+    path = "/home/Sinner/.local/share/nvim/site/pack/packer/start/remember.nvim",
+    url = "https://github.com/vladdoster/remember.nvim"
   },
   ["scope.nvim"] = {
     loaded = true,

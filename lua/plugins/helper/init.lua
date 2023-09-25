@@ -1,7 +1,6 @@
 require("plugins.helper.aerial")
 require("plugins.helper.treesitter")
 require("plugins.helper.autopairs")
-require("plugins.helper.lastplace")
 require("plugins.helper.comment")
 require("plugins.helper.todo-comment")
 require("plugins.helper.hlslens")

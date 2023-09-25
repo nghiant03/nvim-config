@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
   use 'kevinhwang91/nvim-bqf'
   use 'numToStr/Comment.nvim'
   use 'kevinhwang91/nvim-hlslens'
-  use 'ethanholz/nvim-lastplace'
+  use 'vladdoster/remember.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'nvim-lua/plenary.nvim'
   use 'tiagovla/scope.nvim'

@@ -19,7 +19,11 @@ return require('packer').startup(function(use)
   -- Components
   use 'mfussenegger/nvim-dap'
   use 'nvim-lualine/lualine.nvim'
-  use {'nvim-telescope/telescope.nvim', tag = '0.1.1'}
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
+    requires = 'nvim-lua/plenary.nvim'
+	}
   use 'nvim-neotest/neotest'
   use {'akinsho/toggleterm.nvim', tag = '*'}
   use 'nvim-tree/nvim-tree.lua'
@@ -32,7 +36,6 @@ return require('packer').startup(function(use)
   use 'kevinhwang91/nvim-hlslens'
   use 'vladdoster/remember.nvim'
   use 'L3MON4D3/LuaSnip'
-  use 'nvim-lua/plenary.nvim'
   use 'tiagovla/scope.nvim'
   use 'folke/todo-comments.nvim'
   use 'nvim-treesitter/nvim-treesitter'

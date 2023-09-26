@@ -36,7 +36,6 @@ return require('packer').startup(function(use)
   use 'kevinhwang91/nvim-hlslens'
   use 'vladdoster/remember.nvim'
   use 'L3MON4D3/LuaSnip'
-  use 'tiagovla/scope.nvim'
   use 'folke/todo-comments.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'abecodes/tabout.nvim'

@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use 'vladdoster/remember.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'folke/todo-comments.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'abecodes/tabout.nvim'
   use {
     "folke/which-key.nvim",

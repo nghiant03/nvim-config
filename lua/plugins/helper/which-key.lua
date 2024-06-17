@@ -19,7 +19,7 @@ wk.register({
     name = "+previous",
     t = {todo.jump_prev, "Previous todo comment"}
   },
-  ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", "Toggle Terminal"},
+  ["<C-\\>"] = {"<cmd>exe v:count1 . \"ToggleTerm\"<cr>", "Toggle Terminal"},
   ["<C-n>"] = {"<cmd>NvimTreeFindFileToggle<cr>", "Toggle File Explorer"},
   ["[c"] = {function() require("treesitter-context").go_to_context() end, "Go To Context"}
 })

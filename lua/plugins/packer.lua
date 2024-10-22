@@ -64,6 +64,13 @@ return require('packer').startup(function(use)
   -- Themes
   use 'onsails/lspkind.nvim'
   use 'nvim-tree/nvim-web-devicons'
+  use {
+    'echasnovski/mini.nvim',
+    version = false,
+    config = function()
+      require('mini.icons').setup()
+    end
+  }
   use 'folke/tokyonight.nvim'
   use 'startup-nvim/startup.nvim'
   use 'kevinhwang91/nvim-ufo'

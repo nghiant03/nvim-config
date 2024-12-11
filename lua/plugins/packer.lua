@@ -75,6 +75,8 @@ return require('packer').startup(function(use)
   use 'startup-nvim/startup.nvim'
   use 'kevinhwang91/nvim-ufo'
   use 'kevinhwang91/promise-async'
+  -- Practice
+  use 'ThePrimeagen/vim-be-good'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

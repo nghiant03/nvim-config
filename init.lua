@@ -1,6 +1,2 @@
 require("custom")
-require("plugins.packer")
-require("plugins.components")
-require("plugins.themes")
-require("plugins.lsp")
-require("plugins.helper")
+require("config.lazy")

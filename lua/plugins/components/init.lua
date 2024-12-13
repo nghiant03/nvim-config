@@ -1,5 +1,0 @@
-require("plugins.components.lualine")
-require("plugins.components.tree")
-require("plugins.components.telescope")
-require("plugins.components.treesitter-context")
-require("plugins.components.toggleterm")

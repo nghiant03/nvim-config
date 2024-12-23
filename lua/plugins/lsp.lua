@@ -6,16 +6,26 @@ return {
       'williamboman/mason.nvim',
       'onsails/lspkind.nvim',
     },
-    opts = {
-      ensure_installed = {"lua_ls", "clangd", "pyright"},
-      handlers = {
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = {"lua_ls", "clangd", "pyright"}
+      })
+      local lspconfig = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+      require("mason-lspconfig").setup_handlers({
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
         function (server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup {
-            capabilities = capabilities
-          }
+            require("lspconfig")[server_name].setup {
+              capabilities = capabilities
+            }
         end,
         -- Next, you can provide targeted overrides for specific servers.
         ["lua_ls"] = function ()
@@ -30,9 +40,21 @@ return {
             }
           }
         end,
-      }
-    },
-    config = function()
+        ["pyright"] = function ()
+          lspconfig.pyright.setup {
+            capabilities = capabilities,
+            settings = {
+              python = {
+                analysis = {
+                  diagnosticSeverityOverrides = {
+                    reportUnusedExpression = "none",
+                  },
+                },
+              },
+            }
+          }
+        end
+      })
       require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations
         --

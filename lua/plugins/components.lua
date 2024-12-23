@@ -117,5 +117,27 @@ return {
     opts = {
       max_lines = 50,
     }
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        -- ... other ts config
+        textobjects = {
+          move = {
+            enable = true,
+            set_jumps = false, -- you can change this if you want.
+          },
+          select = {
+            enable = true,
+            lookahead = true, -- you can change this if you want
+          },
+          swap = { -- Swap only works with code blocks that are under the same
+                   -- markdown header
+            enable = true,
+          },
+        }
+      })
+    end
   }
 }

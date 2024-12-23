@@ -1,12 +1,13 @@
 return {
-  -- Jupyter
-  {
-    'GCBallesteros/jupytext.nvim',
-    config = true,
-    lazy = false
-  },
-  'GCBallesteros/NotebookNavigator.nvim',
   -- Enhancement
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    opts = {
+      rocks = { "magick" },
+    },
+    config = true,
+  },
   {
     'echasnovski/mini.nvim',
     version = "*",

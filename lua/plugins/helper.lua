@@ -67,7 +67,12 @@ return {
   },
   'windwp/nvim-autopairs',
   'kevinhwang91/nvim-bqf',
-  'numToStr/Comment.nvim',
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  },
   'kevinhwang91/nvim-hlslens',
   'vladdoster/remember.nvim',
   'L3MON4D3/LuaSnip',

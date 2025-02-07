@@ -65,7 +65,11 @@ return {
       end
     },
   },
-  'windwp/nvim-autopairs',
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true
+  },
   'kevinhwang91/nvim-bqf',
   {
     'numToStr/Comment.nvim',

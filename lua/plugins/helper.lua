@@ -77,10 +77,16 @@ return {
       require('Comment').setup()
     end
   },
+  {
+    "kawre/neotab.nvim",
+    event = "InsertEnter",
+    opts = {
+      -- configuration goes here
+    },
+  },
   'kevinhwang91/nvim-hlslens',
   'vladdoster/remember.nvim',
   'L3MON4D3/LuaSnip',
   'folke/todo-comments.nvim',
   {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-  'abecodes/tabout.nvim',
 }

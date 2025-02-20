@@ -57,18 +57,20 @@ return {
       },
       close_automatic_event = {"unfocus"},
       nerd_font = true,
-      -- optionally use on_attach to set keymaps when aerial has attached to a buffer
-      on_attach = function(bufnr)
-        -- Jump forwards/backwards with '{' and '}'
-        vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', {buffer = bufnr})
-        vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', {buffer = bufnr})
-      end
     },
   },
   {
     'windwp/nvim-autopairs',
+    dependencies = 'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
-    config = true
+    config = function()
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local cmp = require('cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
+    end
   },
   'kevinhwang91/nvim-bqf',
   {

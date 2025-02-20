@@ -1,13 +1,3 @@
--- automatically export output chunks to a jupyter notebook on write
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "*.ipynb" },
-  callback = function()
-    if require("molten.status").initialized() == "Molten" then
-      vim.cmd("MoltenExportOutput!")
-    end
-  end,
-})
-
 -- change the configuration when editing a python file
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.py",

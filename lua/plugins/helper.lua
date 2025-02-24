@@ -26,7 +26,7 @@ return {
         { '<leader>ae', '<cmd>AerialToggle<CR>', desc = "Toggle Aerial"},
         { '<leader>m', group = "molten"},
         { "<leader>me", ":MoltenEvaluateOperator<CR>", desc = "Evaluate Operator"},
-        { "<leader>mo", ":noautocmd MoltenEnterOutput<CR>", desc = "Open Output Window"},
+        { "<leader>mo", ":noautocmd MoltenEnterOutput<CR> :noautocmd MoltenEnterOutput<CR>", desc = "Enter Output Window"},
         { "<leader>mv", ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Execute Visual Selection", mode = "v"},
         { "<leader>mr", ":MoltenReevaluateCell<CR>", desc = "Re-eval Cell"},
         { "<leader>mc", ":MoltenHideOutput<CR>", desc = "Close Output Window"},
@@ -42,17 +42,6 @@ return {
         { "<leader>qRA", function() runner.run_all(true) end, desc = "Run All Cells Of All Langs" },
       })
     end
-  },
-  {
-    'stevearc/aerial.nvim',
-    opts = {
-      backends = {"lsp", "treesitter"},
-      layout = {
-        default_direction = "prefer_right"
-      },
-      close_automatic_event = {"unfocus"},
-      nerd_font = true,
-    },
   },
   {
     'windwp/nvim-autopairs',

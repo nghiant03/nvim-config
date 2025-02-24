@@ -13,7 +13,7 @@ return {
       options = {
         theme = 'tokyonight',
         icons_enabled = true,
-        disabled_filetypes = {"NvimTree", "packer", "aerial", "startup"},
+        disabled_filetypes = {"NvimTree", "snacks_dashboard"},
       },
       sections = {
         lualine_a = {{

@@ -1,8 +1,3 @@
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
 return {
@@ -23,19 +18,6 @@ return {
         lualine_x = {"encoding", "fileformat"},
         lualine_y = {"filetype"},
         lualine_z = {"progress", "location"},
-      }
-    }
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    dependencies  = 'nvim-lua/plenary.nvim',
-    opts = {
-      defaults = {
-        winblend = 25,
-        wrap_results = true,
-        path_display = {
-        shorten = 5
-        }
       }
     }
   },
@@ -62,25 +44,20 @@ return {
     }
   },
   {
-    'nvim-tree/nvim-tree.lua',
+    "folke/snacks.nvim",
     opts = {
-      hijack_cursor = true,
-      hijack_unnamed_buffer_when_opening = true,
-      modified = {
-        enable = true,
+      explorer = {
+        replace_netrw = true,
+        -- your explorer configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
       },
-      renderer = {
-        highlight_opened_files = "name",
-      },
-      live_filter = {
-        always_show_folders = false
-      },
-      update_focused_file = {
-        enable = true,
-      },
-      actions = {
-        change_dir = {
-          global = true
+      picker = {
+        sources = {
+          explorer = {
+            -- your explorer picker configuration comes here
+            -- or leave it empty to use the default settings
+          }
         }
       }
     }

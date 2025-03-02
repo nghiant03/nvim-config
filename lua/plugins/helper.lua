@@ -105,11 +105,20 @@ return {
     }
   },
   {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = { 'markdown', 'quarto', 'codecompanion'},
+  },
+  {
     'windwp/nvim-autopairs',
     dependencies = 'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
     config = function()
-      require('nvim-autopairs').setup{}
+      require('nvim-autopairs').setup{
+        check_ts = true,
+        ts_config = {
+          python = {'import_from_statement'}
+        },
+        disable_filetype = {'codecompanion', 'snacks_picker_input'}
+      }
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
       local cmp = require('cmp')
       cmp.event:on(
@@ -134,7 +143,6 @@ return {
   },
   'kevinhwang91/nvim-hlslens',
   'vladdoster/remember.nvim',
-  'L3MON4D3/LuaSnip',
   'folke/todo-comments.nvim',
   {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 }

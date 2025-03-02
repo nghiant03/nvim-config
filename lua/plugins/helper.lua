@@ -95,6 +95,16 @@ return {
     end
   },
   {
+    "folke/snacks.nvim",
+    opts = {
+      bigfile = {
+        -- your bigfile configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    }
+  },
+  {
     'windwp/nvim-autopairs',
     dependencies = 'hrsh7th/nvim-cmp',
     event = 'InsertEnter',

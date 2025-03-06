@@ -9,6 +9,8 @@ return {
       local todo = require('todo-comments')
       local runner = require('quarto.runner')
       local snacks = require('snacks')
+      local dap = require('dap')
+      local dapui = require('dapui')
       wk.add({
         { "<C-\\>", '<cmd>exe v:count1 . "ToggleTerm"<cr>', desc = "Toggle Terminal" },
         { "<C-\\>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "t" },
@@ -91,6 +93,25 @@ return {
         { "gy", function() snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
         { "<leader>ss", function() snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
         { "<leader>sS", function() snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+        -- DAP
+        { "<leader>dB", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+        { "<leader>db", function() dap.toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+        { "<leader>dc", function() dap.continue() end, desc = "Run/Continue" },
+        { "<leader>dC", function() dap.run_to_cursor() end, desc = "Run to Cursor" },
+        { "<leader>dg", function() dap.goto_() end, desc = "Go to Line (No Execute)" },
+        { "<leader>dl", function() dap.run_last() end, desc = "Run Last" },
+        { "<leader>dP", function() dap.pause() end, desc = "Pause" },
+        { "<leader>dr", function() dap.repl.toggle() end, desc = "Toggle REPL" },
+        { "<leader>ds", function() dap.session() end, desc = "Session" },
+        { "<leader>dt", function() dap.terminate() end, desc = "Terminate" },
+        { "<leader>dw", function() dap.ui.widgets.hover() end, desc = "Widgets" },
+        { "<leader>du", function() dapui.toggle({ }) end, desc = "Dap UI" },
+        { "<leader>de", function() dapui.eval() end, desc = "Eval", mode = {"n", "v"} },
+        { "<M-i>", function() dap.step_into() end, desc = "Step Into" },
+        { "<M-o>", function() dap.step_over() end, desc = "Step Over" },
+        { "<M-e>", function() dap.step_out() end, desc = "Step Out" },
+        { "<leader>dj", function() dap.down() end, desc = "Down" },
+        { "<leader>dk", function() dap.up() end, desc = "Up" },
       })
     end
   },

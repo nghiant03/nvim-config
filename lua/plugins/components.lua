@@ -1,7 +1,6 @@
 vim.opt.termguicolors = true
 
 return {
-  'mfussenegger/nvim-dap',
   {
     'nvim-lualine/lualine.nvim',
     opts = {
@@ -45,6 +44,7 @@ return {
   },
   {
     "folke/snacks.nvim",
+    version = '*',
     opts = {
       explorer = {
         replace_netrw = true,

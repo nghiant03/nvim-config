@@ -2,6 +2,8 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      notifier = {
+      },
       dashboard = {
         sections = {
           { section = "header" },

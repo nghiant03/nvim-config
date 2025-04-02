@@ -13,14 +13,16 @@ return {
         },
       },
       opts = {
-        -- Set debug logging
-        log_level = "DEBUG",
+        log_level = "INFO",
       },
       adapter = {
         gemini = function()
           return require('codecompanion.adapter').extend('gemini', {
             schema = {
-              maxOutputTokens = 256
+              model = {
+                default = 'gemini-2.5-pro-exp-03-25'
+              },
+              maxOutputTokens = 1024
             }
           })
         end

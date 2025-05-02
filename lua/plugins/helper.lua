@@ -114,6 +114,12 @@ return {
         { "<M-e>", function() dap.step_out() end, desc = "Step Out" },
         { "<leader>dj", function() dap.down() end, desc = "Down" },
         { "<leader>dk", function() dap.up() end, desc = "Up" },
+        -- LaTeX
+        { "<leader>li", ":VimtexInfo<CR>", desc = "Vimtex Info"},
+        { "<leader>lc", ":VimtexCompile<CR>", desc = "Vimtex Compile"},
+        { "<leader>ls", ":VimtexStop<CR>", desc = "Vimtex Stop"},
+        { "<leader>lC", ":VimtexClean!<CR>", desc = "Vimtex Clean All"},
+        { "<leader>lv", ":VimtexView<CR>", desc = "Vimtex View"},
       })
     end
   },

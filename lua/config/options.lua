@@ -38,6 +38,8 @@ vim.opt.laststatus = 2                          -- status line not display in si
 vim.opt.autoread = true				                  -- read from buffer when switch to another buffer
 vim.opt.autowrite = true
 vim.opt.cursorline = false                      -- dont highlight cursor line
+vim.opt.wrap = true
+vim.opt.linebreak = true
 vim.opt.whichwrap:append("<,>,[,],h,l")
 
 vim.api.nvim_command("set guicursor=a:blinkon100")

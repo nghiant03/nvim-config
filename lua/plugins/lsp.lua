@@ -57,6 +57,19 @@ return {
         }
       })
 
+      vim.lsp.config("ltex-ls-plus", {
+        settings = {
+          ltex = {
+            enabled = {
+              'bib',
+              'tex',
+              'gitcommit',
+              'latex'
+            }
+          }
+        }
+      })
+
       require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations
         --

@@ -1,15 +1,15 @@
 return {
   {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
     dependencies = {
       'neovim/nvim-lspconfig',
-      'williamboman/mason.nvim',
+      'mason-org/mason.nvim',
       'onsails/lspkind.nvim',
     },
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = {"lua_ls", "clangd", "pyright"}
+        ensure_installed = {"lua_ls", "clangd", "pyright", "rust_analyzer"}
       })
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -18,43 +18,45 @@ return {
         dynamicRegistration = false,
         lineFoldingOnly = true,
       }
-      require("mason-lspconfig").setup_handlers({
-        -- The first entry (without a key) will be the default handler
-        -- and will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function (server_name) -- default handler (optional)
-            require("lspconfig")[server_name].setup {
-              capabilities = capabilities
-            }
-        end,
-        -- Next, you can provide targeted overrides for specific servers.
-        ["lua_ls"] = function ()
-          lspconfig.lua_ls.setup {
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                diagnostics = {
-                  globals = { "vim" }
-                }
+
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = {
+                'vim'
               }
             }
           }
-        end,
-        ["pyright"] = function ()
-          lspconfig.pyright.setup {
-            capabilities = capabilities,
-            settings = {
-              python = {
-                analysis = {
-                  diagnosticSeverityOverrides = {
-                    reportUnusedExpression = "none",
-                  },
-                },
-              },
+        }
+      })
+
+      vim.lsp.config("pyright", {
+        settings = {
+          python = {
+            analysis = {
+              diagnosticSeverityOverrides = {
+                reportUnusedExpression = "none",
+              }
             }
           }
-        end
+        }
       })
+
+      vim.lsp.config("rust_analyzer", {
+        settings = {
+          ["rust_analyzer"] = {
+            check = {
+              command = "clippy"
+            }
+          }
+        }
+      })
+
       require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations
         --

@@ -16,7 +16,7 @@ return {
         capabilities = capabilities,
       })
 
-      vim.lsp.config("lua_ls", {
+      vim.lsp.config("luals", {
         settings = {
           Lua = {
             diagnostics = {
@@ -65,6 +65,8 @@ return {
           }
         }
       })
+
+      vim.lsp.enable({'luals', 'pyright', 'rust_analyzer', 'clangd', 'ltex_plus', 'texlab'})
 
       require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations

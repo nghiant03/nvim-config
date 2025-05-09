@@ -1,4 +1,6 @@
 vim.g.python3_host_prog=vim.fn.expand("~/miniforge3/envs/nvim/bin/python3")
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 return {
   {
     "benlubas/molten-nvim",
@@ -36,8 +38,8 @@ return {
   },
   {
     "3rd/image.nvim",
-    dependencies = { "luarocks.nvim" },
-    processor = "magick_cli",
+    event = "VeryLazy",
+    build = false,
     opts = {
       backend = "kitty", -- Kitty will provide the best experience, but you need a compatible terminal
       processor = "magick_cli",

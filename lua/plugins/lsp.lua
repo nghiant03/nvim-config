@@ -6,11 +6,11 @@ return {
       'mason-org/mason.nvim',
       'onsails/lspkind.nvim',
     },
+    opts = {
+      ensure_installed = {"lua_ls", "clangd", "pyright", "rust_analyzer"}
+    },
     config = function()
       require("mason").setup()
-      require("mason-lspconfig").setup({
-        ensure_installed = {"lua_ls", "clangd", "pyright", "rust_analyzer"}
-      })
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -57,9 +57,12 @@ return {
         }
       })
 
-      vim.lsp.config("ltex-ls-plus", {
+      vim.lsp.config("ltex_plus", {
         settings = {
           ltex = {
+            additionalRules = {
+              enabledPickyRules = true
+            },
             enabled = {
               'bib',
               'tex',

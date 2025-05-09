@@ -1,6 +1,7 @@
 return {
   {
     'hrsh7th/nvim-cmp',
+    event = "InsertEnter",
     config = function()
       local luasnip = require("luasnip")
       local cmp = require'cmp'
@@ -98,7 +99,7 @@ return {
   },
   {
     'hrsh7th/cmp-nvim-lsp',
-    dependencies = 'hrsh7th/nvim-cmp',
+    event = "InsertEnter",
     config = function()
       -- Set up lspconfig.
       local capabilities = require('cmp_nvim_lsp').default_capabilities()

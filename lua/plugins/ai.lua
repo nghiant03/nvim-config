@@ -1,6 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
+    cmd = {"CodeCompanion", "CodeCompanionChat", "CodeCompanionCmd", "CodeCompanionActions"},
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -31,11 +32,13 @@ return {
   },
   {
     "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
     opts = {
     }
   },
   {
     "milanglacier/minuet-ai.nvim",
+    event = "InsertEnter",
     opts = {
       provider = "codestral",
       add_single_line_entry = false,

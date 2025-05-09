@@ -4,6 +4,7 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 return {
   {
     "benlubas/molten-nvim",
+    event = "BufReadCmd *.ipynb",
     version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
     dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
@@ -38,7 +39,7 @@ return {
   },
   {
     "3rd/image.nvim",
-    event = "VeryLazy",
+    event = "BufReadCmd *.ipynb",
     build = false,
     opts = {
       backend = "kitty", -- Kitty will provide the best experience, but you need a compatible terminal

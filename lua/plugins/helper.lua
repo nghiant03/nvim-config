@@ -11,7 +11,6 @@ return {
       local snacks = require('snacks')
       local dap = require('dap')
       local dapui = require('dapui')
-      local diff = require('diffview')
       wk.add({
         { "<C-\\>", '<cmd>exe v:count1 . "ToggleTerm"<cr>', desc = "Toggle Terminal" },
         { "<C-\\>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "t" },
@@ -57,7 +56,7 @@ return {
         { "<leader>gL", function() snacks.picker.git_log_line() end, desc = "Git Log Line" },
         { "<leader>gs", function() snacks.picker.git_status() end, desc = "Git Status" },
         { "<leader>gS", function() snacks.picker.git_stash() end, desc = "Git Stash" },
-        { "<leader>gdv", function() diff.open() end, desc = "Git Diff View"},
+        { "<leader>gdv", ":DiffviewOpen<CR>", desc = "Git Diff View"},
         { "<leader>gd", function() snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
         { "<leader>gf", function() snacks.picker.git_log_file() end, desc = "Git Log File" },
         -- Grep
@@ -139,6 +138,7 @@ return {
   },
   {
     'windwp/nvim-autopairs',
+    event = "InsertEnter",
     dependencies = 'hrsh7th/nvim-cmp',
     config = function()
       require('nvim-autopairs').setup{
@@ -170,7 +170,10 @@ return {
       -- configuration goes here
     },
   },
-  'sindrets/diffview.nvim',
+  {
+    'sindrets/diffview.nvim',
+    keys = "<leader>gdv"
+  },
   'kevinhwang91/nvim-hlslens',
   'vladdoster/remember.nvim',
   'folke/todo-comments.nvim',

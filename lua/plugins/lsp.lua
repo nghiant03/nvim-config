@@ -1,17 +1,10 @@
 return {
   {
-    'mason-org/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
     dependencies = {
-      'neovim/nvim-lspconfig',
-      'mason-org/mason.nvim',
       'onsails/lspkind.nvim',
     },
-    opts = {
-      ensure_installed = {"lua_ls", "clangd", "pyright", "rust_analyzer"}
-    },
     config = function()
-      require("mason").setup()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
       capabilities.textDocument.foldingRange = {

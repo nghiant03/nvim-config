@@ -1,6 +1,8 @@
 return {
   {
     'mfussenegger/nvim-dap',
+    keys = "<leader>d",
+    dependencies = 'rcarriga/nvim-dap-ui',
     config = function()
       local dap = require('dap')
 
@@ -63,7 +65,7 @@ return {
               return cwd .. '/venv/bin/python'
             elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
               return cwd .. '/.venv/bin/python'
-            elseif vim.fn.executable(venv .. '/bin/python') == 1 then
+            elseif venv and vim.fn.executable(venv .. '/bin/python') == 1 then
               return venv .. '/bin/python'
             else
               return '/usr/bin/python'
@@ -87,7 +89,8 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = {'mfussenegger/nvim-dap', "nvim-neotest/nvim-nio" },
+    dependencies = {'nvim-neotest/nvim-nio'},
+    keys = "<leader>d",
     -- stylua: ignore
     opts = {},
     config = function(_, opts)

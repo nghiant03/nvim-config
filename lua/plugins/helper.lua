@@ -7,10 +7,9 @@ return {
       vim.o.timeoutlen = 300
       local wk = require("which-key")
       local todo = require('todo-comments')
-      local runner = require('quarto.runner')
       local snacks = require('snacks')
-      local dap = require('dap')
-      local dapui = require('dapui')
+      local dap = ":lua require('dap')"
+      local dapui = ":lua require('dapui')"
       wk.add({
         { "<C-\\>", '<cmd>exe v:count1 . "ToggleTerm"<cr>', desc = "Toggle Terminal" },
         { "<C-\\>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "t" },
@@ -29,13 +28,10 @@ return {
         { "<leader>md", ":MoltenDelete<CR>", desc = "Delete Molten Cell"},
         { "<leader>mx", ":MoltenOpenInBrowser<CR>", desc = "Open Output In Browser"},
         { "<leader>q", group = "quarto"},
-        { "<leader>qc", runner.run_cell, desc = "Run Cell" },
-        { "<leader>qa", runner.run_above, desc = "Run Cell And Above" },
-        { "<leader>qb", runner.run_below, desc = "Run Cell And Below"},
-        { "<leader>qA", runner.run_all, desc = "Run All Cells" },
-        { "<leader>ql", runner.run_line, desc = "Run Line" },
-        { "<leader>qv",  runner.run_range, desc = "Run Visual Range", mode = "v" },
-        { "<leader>qRA", function() runner.run_all(true) end, desc = "Run All Cells Of All Langs" },
+        { "<leader>qc", ":QuartoSend<CR>", desc = "Run Cell" },
+        { "<leader>qa", ":QuartoSendAbove<CR>", desc = "Run Cell And Above" },
+        { "<leader>qb", ":QuartoSendBelow<CR>", desc = "Run Cell And Below"},
+        { "<leader>qA", ":QuartoSendAll", desc = "Run All Cells" },
         -- Top Pickers & Explorer
         { "<leader><space>", function() snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() snacks.picker.buffers() end, desc = "Buffers" },
@@ -95,24 +91,24 @@ return {
         { "<leader>ss", function() snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
         { "<leader>sS", function() snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
         -- DAP
-        { "<leader>dB", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
-        { "<leader>db", function() dap.toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-        { "<leader>dc", function() dap.continue() end, desc = "Run/Continue" },
-        { "<leader>dC", function() dap.run_to_cursor() end, desc = "Run to Cursor" },
-        { "<leader>dg", function() dap.goto_() end, desc = "Go to Line (No Execute)" },
-        { "<leader>dl", function() dap.run_last() end, desc = "Run Last" },
-        { "<leader>dP", function() dap.pause() end, desc = "Pause" },
-        { "<leader>dr", function() dap.repl.toggle() end, desc = "Toggle REPL" },
-        { "<leader>ds", function() dap.session() end, desc = "Session" },
-        { "<leader>dt", function() dap.terminate() end, desc = "Terminate" },
-        { "<leader>dw", function() dap.ui.widgets.hover() end, desc = "Widgets" },
-        { "<leader>du", function() dapui.toggle({ }) end, desc = "Dap UI" },
-        { "<leader>de", function() dapui.eval() end, desc = "Eval", mode = {"n", "v"} },
-        { "<M-i>", function() dap.step_into() end, desc = "Step Into" },
-        { "<M-o>", function() dap.step_over() end, desc = "Step Over" },
-        { "<M-e>", function() dap.step_out() end, desc = "Step Out" },
-        { "<leader>dj", function() dap.down() end, desc = "Down" },
-        { "<leader>dk", function() dap.up() end, desc = "Up" },
+        { "<leader>dB", dap .. ".set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", desc = "Breakpoint Condition" },
+        { "<leader>db", dap .. ".toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
+        { "<leader>dc", dap .. ".continue()<CR>", desc = "Run/Continue" },
+        { "<leader>dC", dap .. ".run_to_cursor()<CR>", desc = "Run to Cursor" },
+        { "<leader>dg", dap .. ".goto_()<CR>", desc = "Go to Line (No Execute)" },
+        { "<leader>dl", dap .. ".run_last()<CR>", desc = "Run Last" },
+        { "<leader>dP", dap .. ".pause()<CR>", desc = "Pause" },
+        { "<leader>dr", dap .. ".repl.toggle()<CR>", desc = "Toggle REPL" },
+        { "<leader>ds", dap .. ".session()<CR>", desc = "Session" },
+        { "<leader>dt", dap .. ".terminate()<CR>", desc = "Terminate" },
+        { "<leader>dw", dap .. ".ui.widgets.hover()<CR>", desc = "Widgets" },
+        { "<leader>du", dapui .. ".toggle({ })<CR>", desc = "Dap UI" },
+        { "<leader>de", dapui .. ".eval()<CR>", desc = "Eval", mode = {"n", "v"} },
+        { "<M-i>", dap .. ".step_into()<CR>", desc = "Step Into" },
+        { "<M-o>", dap .. ".step_over()<CR>", desc = "Step Over" },
+        { "<M-e>", dap .. ".step_out()<CR>", desc = "Step Out" },
+        { "<leader>dj", dap .. ".down()<CR>", desc = "Down" },
+        { "<leader>dk", dap .. ".up()<CR>", desc = "Up" },
         -- LaTeX
         { "<leader>li", ":VimtexInfo<CR>", desc = "Vimtex Info"},
         { "<leader>lc", ":VimtexCompile<CR>", desc = "Vimtex Compile"},

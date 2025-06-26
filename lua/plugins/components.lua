@@ -23,6 +23,7 @@ return {
   'nvim-neotest/neotest',
   {
     'akinsho/toggleterm.nvim',
+    cmd = "ToggleTerm",
     version = '*',
     opts = {
       size = 20,

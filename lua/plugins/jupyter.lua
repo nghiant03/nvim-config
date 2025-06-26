@@ -1,6 +1,6 @@
 vim.g.python3_host_prog=vim.fn.expand("~/miniforge3/envs/nvim/bin/python3")
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$XDG_CONFIG_HOME") .. "/luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$XDG_CONFIG_HOME") .. "/luarocks/share/lua/5.1/?.lua;"
 return {
   {
     "benlubas/molten-nvim",

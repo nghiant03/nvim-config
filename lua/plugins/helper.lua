@@ -53,7 +53,6 @@ return {
         { "<leader>gs", function() snacks.picker.git_status() end, desc = "Git Status" },
         { "<leader>gS", function() snacks.picker.git_stash() end, desc = "Git Stash" },
         { "<leader>gdv", ":DiffviewOpen<CR>", desc = "Git Diff View"},
-        { "<leader>gd", function() snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
         { "<leader>gf", function() snacks.picker.git_log_file() end, desc = "Git Log File" },
         -- Grep
         { "<leader>sb", function() snacks.picker.lines() end, desc = "Buffer Lines" },
@@ -115,6 +114,7 @@ return {
         { "<leader>ls", ":VimtexStop<CR>", desc = "Vimtex Stop"},
         { "<leader>lC", ":VimtexClean!<CR>", desc = "Vimtex Clean All"},
         { "<leader>lv", ":VimtexView<CR>", desc = "Vimtex View"},
+        { "<leader>lS", ":VimtexCompileSelected<CR>", desc = "Vimtex View"},
       })
     end
   },
@@ -168,7 +168,6 @@ return {
   },
   {
     'sindrets/diffview.nvim',
-    keys = "<leader>gdv"
   },
   'kevinhwang91/nvim-hlslens',
   'vladdoster/remember.nvim',

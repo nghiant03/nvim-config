@@ -18,12 +18,12 @@ return {
         { "[t", todo.jump_next, desc = "Previous todo comment" },
         { "]", group = "next" },
         { "]t", todo.jump_prev, desc = "Next todo comment" },
-        { '<leader>ae', '<cmd>AerialToggle<CR>', desc = "Toggle Aerial"},
         { '<leader>m', group = "molten"},
         { "<leader>me", ":MoltenEvaluateOperator<CR>", desc = "Evaluate Operator"},
-        { "<leader>mo", ":noautocmd MoltenEnterOutput<CR> :noautocmd MoltenEnterOutput<CR>", desc = "Enter Output Window"},
+        { "<leader>mo", ":noautocmd MoltenEnterOutput<CR>:noautocmd MoltenEnterOutput<CR>", desc = "Enter Output Window"},
         { "<leader>mv", ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Execute Visual Selection", mode = "v"},
-        { "<leader>mr", ":MoltenReevaluateCell<CR>", desc = "Re-eval Cell"},
+				{ "<leader>mi", ":MoltenInit<CR>", desc= "Initialize Kernel"},
+        { "<leader>mr", ":MoltenRestart<CR>", desc = "Restart Kernel"},
         { "<leader>mc", ":MoltenHideOutput<CR>", desc = "Close Output Window"},
         { "<leader>md", ":MoltenDelete<CR>", desc = "Delete Molten Cell"},
         { "<leader>mx", ":MoltenOpenInBrowser<CR>", desc = "Open Output In Browser"},
@@ -31,7 +31,7 @@ return {
         { "<leader>qc", ":QuartoSend<CR>", desc = "Run Cell" },
         { "<leader>qa", ":QuartoSendAbove<CR>", desc = "Run Cell And Above" },
         { "<leader>qb", ":QuartoSendBelow<CR>", desc = "Run Cell And Below"},
-        { "<leader>qA", ":QuartoSendAll", desc = "Run All Cells" },
+        { "<leader>qA", ":QuartoSendAll<CR>", desc = "Run All Cells" },
         -- Top Pickers & Explorer
         { "<leader><space>", function() snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() snacks.picker.buffers() end, desc = "Buffers" },
@@ -131,6 +131,9 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     ft = { 'markdown', 'quarto', 'codecompanion'},
+		opts = {
+			enabled = false
+		}
   },
   {
     'windwp/nvim-autopairs',

@@ -1,36 +1,5 @@
 return {
   {
-    "olimorris/codecompanion.nvim",
-    cmd = {"CodeCompanion", "CodeCompanionChat", "CodeCompanionCmd", "CodeCompanionActions"},
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    opts = {
-      strategies = {
-        -- Change the default chat adapter
-        chat = {
-          adapter = "gemini",
-        },
-      },
-      opts = {
-        log_level = "INFO",
-      },
-      adapter = {
-        gemini = function()
-          return require('codecompanion.adapter').extend('gemini', {
-            schema = {
-              model = {
-                default = 'gemini-2.5-pro-exp-03-25'
-              },
-              maxOutputTokens = 1024
-            }
-          })
-        end
-      }
-    },
-  },
-  {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
     opts = {

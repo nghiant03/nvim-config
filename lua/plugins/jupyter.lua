@@ -1,16 +1,12 @@
 vim.g.python3_host_prog=vim.fn.expand("~/miniforge3/envs/nvim/bin/python3")
-package.path = package.path .. ";" .. vim.fn.expand("$XDG_CONFIG_HOME") .. "/luarocks/share/lua/5.1/?/init.lua;"
-package.path = package.path .. ";" .. vim.fn.expand("$XDG_CONFIG_HOME") .. "/luarocks/share/lua/5.1/?.lua;"
 return {
   {
     "benlubas/molten-nvim",
     event = "BufReadCmd *.ipynb",
-    version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
-    dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
     init = function()
       -- these are examples, not defaults. Please see the readme
-      vim.g.molten_image_provider = "image.nvim"
+      vim.g.molten_image_provider = "snacks.nvim"
       vim.g.molten_output_win_max_height = 20
       -- I find auto open annoying, keep in mind setting this option will require setting
       -- a keybind for `:noautocmd MoltenEnterOutput` to open the output again
@@ -36,23 +32,6 @@ return {
     },
     config = true,
     lazy = false
-  },
-  {
-    "3rd/image.nvim",
-    event = "BufReadCmd *.ipynb",
-    build = false,
-    opts = {
-      backend = "kitty", -- Kitty will provide the best experience, but you need a compatible terminal
-      processor = "magick_cli",
-      integrations = {}, -- do whatever you want with image.nvim's integrations
-      max_width = 100, -- tweak to preference
-      max_height = 12, -- ^
-      max_height_window_percentage = math.huge, -- this is necessary for a good experience
-      max_width_window_percentage = math.huge,
-      window_overlap_clear_enabled = true,
-      window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
-    },
-    version = "1.1.0"
   },
   {
     "quarto-dev/quarto-nvim",

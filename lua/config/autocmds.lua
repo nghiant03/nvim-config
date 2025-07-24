@@ -8,14 +8,13 @@ local imb = function(e) -- init molten buffer
             local metadata = vim.json.decode(io.open(e.file, "r"):read("a"))["metadata"]
             return metadata.kernelspec.name
         end
-        local ok, kernel_name = pcall(try_kernel_name)
-        if not ok or not vim.tbl_contains(kernels, kernel_name) then
-            kernel_name = nil
-            local venv = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
-            if venv ~= nil then
-                kernel_name = string.match(venv, "/.+/(.+)")
-            end
-        end
+				kernel_name = nil
+				local venv = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+				if venv ~= nil then
+						kernel_name = string.match(venv, "/.+/(.+)")
+				else 
+					local ok, kernel_name = pcall(try_kernel_name)
+				end
         if kernel_name ~= nil and vim.tbl_contains(kernels, kernel_name) then
             vim.cmd(("MoltenInit %s"):format(kernel_name))
         end
@@ -89,9 +88,6 @@ local default_notebook = [[
     ],
     "metadata": {
      "kernelspec": {
-      "display_name": "Python 3",
-      "language": "python",
-      "name": "python3"
      },
      "language_info": {
       "codemirror_mode": {

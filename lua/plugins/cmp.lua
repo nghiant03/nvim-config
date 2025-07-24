@@ -36,9 +36,9 @@ return {
           ['<Tab>'] = function()
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, false), '')
-            else
+						elseif luasnip.locally_jumpable(1) then
+							luasnip.jump(1)            
+						else
               neotab.tabout()
             end
           end,

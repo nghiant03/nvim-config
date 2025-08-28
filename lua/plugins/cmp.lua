@@ -1,4 +1,5 @@
 return {
+	
   {
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
@@ -6,6 +7,7 @@ return {
       local luasnip = require("luasnip")
       local cmp = require'cmp'
       local neotab = require("neotab")
+
 
       cmp.setup({
         snippet = {
@@ -22,9 +24,8 @@ return {
           -- documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-e>'] = cmp.mapping.abort(),
           ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ['<C-l>'] = cmp.mapping(function(fallback)
@@ -45,11 +46,12 @@ return {
           ['<S-Tab>'] = function()
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, false), '')
+            elseif luasnip.locally_jumpable(-1) then
+							luasnip.jump(-1)
             end
           end,
-          ['<M-c>'] = require('minuet').make_cmp_map()
+          ['<C-x><C-a>'] = require('minuet').make_cmp_map()
+
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },

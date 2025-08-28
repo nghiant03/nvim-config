@@ -16,17 +16,16 @@ return {
         capabilities = capabilities,
       })
 
-      vim.lsp.config("luals", {
-        -- settings = {
-        --   Lua = {
-        --     diagnostics = {
-        --       globals = {
-        --         'vim'
-        --       }
-        --     }
-        --   }
-        -- },
-				filetypes = {'lua'}
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = {
+                'vim'
+              }
+            }
+          }
+        },
       })
 
       vim.lsp.config("pyright", {
@@ -67,7 +66,7 @@ return {
         }
       })
 
-      vim.lsp.enable({'luals', 'pyright', 'ruff', 'rust_analyzer', 'ltex_plus', 'texlab'})
+      vim.lsp.enable({'lua_ls', 'pyright', 'ruff', 'rust_analyzer', 'ltex_plus', 'texlab'})
 
       require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations

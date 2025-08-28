@@ -6,10 +6,9 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
       local wk = require("which-key")
-      local todo = require("todo-comments")
       local snacks = require("snacks")
       local dap = ":lua require('dap')"
-      local dapui = ":lua require('dapui')"
+      local dapview = ":lua require('dapview')"
       wk.add({
         { "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm'<cr>", desc = "Toggle Terminal" },
         { "<C-t>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "t" },
@@ -94,9 +93,7 @@ return {
         { "<leader>dr", dap .. ".repl.toggle()<CR>", desc = "Toggle REPL" },
         { "<leader>ds", dap .. ".session()<CR>", desc = "Session" },
         { "<leader>dt", dap .. ".terminate()<CR>", desc = "Terminate" },
-        { "<leader>dw", dap .. ".ui.widgets.hover()<CR>", desc = "Widgets" },
-        { "<leader>du", dapui .. ".toggle({ })<CR>", desc = "Dap UI" },
-        { "<leader>de", dapui .. ".eval()<CR>", desc = "Eval", mode = {"n", "v"} },
+        { "<leader>du", dapview .. ".toggle({ })<CR>", desc = "Dap UI" },
         { "<M-i>", dap .. ".step_into()<CR>", desc = "Step Into" },
         { "<M-o>", dap .. ".step_over()<CR>", desc = "Step Over" },
         { "<M-e>", dap .. ".step_out()<CR>", desc = "Step Out" },

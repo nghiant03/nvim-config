@@ -20,29 +20,12 @@ return {
       }
     }
   },
-  'nvim-neotest/neotest',
-  {
-    'akinsho/toggleterm.nvim',
-    cmd = "ToggleTerm",
-    version = '*',
-    opts = {
-      size = 20,
-      autochdir = true,
-      auto_scroll = true,
-      hide_numbers = true,
-      shade_terminals = true,
-      shading_factor = 2,
-      start_in_insert = true,
-      insert_mappings = true,
-      persist_size = true,
-      direction = "float",
-      close_on_exit = true,
-      shell = vim.o.shell,
-      float_opts = {
-        border = "curved",
-      },
-    }
-  },
+	{
+		"akinsho/toggleterm.nvim",
+		opts = {
+			direction = 'float'
+		}
+	},
   {
     "folke/snacks.nvim",
     version = '*',

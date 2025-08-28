@@ -1,12 +1,7 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
-    opts = {
-    }
-  },
-  {
     "milanglacier/minuet-ai.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
     event = "InsertEnter",
     opts = {
       provider = "codestral",

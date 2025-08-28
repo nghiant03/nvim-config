@@ -66,7 +66,7 @@ return {
         }
       })
 
-      vim.lsp.enable({'luals', 'pyright', 'rust_analyzer', 'clangd', 'ltex_plus', 'texlab'})
+      vim.lsp.enable({'luals', 'pyright', 'ruff', 'rust_analyzer', 'ltex_plus', 'texlab'})
 
       require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations
@@ -141,7 +141,7 @@ return {
       },
       {
         "<leader>cl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        "<cmd>Trouble lsp toggle focus=false<cr>",
         desc = "LSP Definitions / references / ... (Trouble)",
       },
       {

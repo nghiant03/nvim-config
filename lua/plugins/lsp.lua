@@ -17,15 +17,16 @@ return {
       })
 
       vim.lsp.config("luals", {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = {
-                'vim'
-              }
-            }
-          }
-        }
+        -- settings = {
+        --   Lua = {
+        --     diagnostics = {
+        --       globals = {
+        --         'vim'
+        --       }
+        --     }
+        --   }
+        -- },
+				filetypes = {'lua'}
       })
 
       vim.lsp.config("pyright", {

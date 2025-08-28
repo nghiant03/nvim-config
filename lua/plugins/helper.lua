@@ -6,32 +6,27 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
       local wk = require("which-key")
-      local todo = require('todo-comments')
-      local snacks = require('snacks')
+      local todo = require("todo-comments")
+      local snacks = require("snacks")
       local dap = ":lua require('dap')"
       local dapui = ":lua require('dapui')"
       wk.add({
-        { "<C-\\>", '<cmd>exe v:count1 . "ToggleTerm"<cr>', desc = "Toggle Terminal" },
-        { "<C-\\>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "t" },
-        { "[", group = "previous" },
-        { "[ct", function() require("treesitter-context").go_to_context() end, desc = "Go To Context" },
-        { "[t", todo.jump_next, desc = "Previous todo comment" },
-        { "]", group = "next" },
-        { "]t", todo.jump_prev, desc = "Next todo comment" },
-        { '<leader>m', group = "molten"},
-        { "<leader>me", ":MoltenEvaluateOperator<CR>", desc = "Evaluate Operator"},
-        { "<leader>mo", ":noautocmd MoltenEnterOutput<CR>:noautocmd MoltenEnterOutput<CR>", desc = "Enter Output Window"},
-        { "<leader>mv", ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Execute Visual Selection", mode = "v"},
-				{ "<leader>mi", ":MoltenInit<CR>", desc= "Initialize Kernel"},
-        { "<leader>mr", ":MoltenRestart<CR>", desc = "Restart Kernel"},
-        { "<leader>mc", ":MoltenHideOutput<CR>", desc = "Close Output Window"},
-        { "<leader>md", ":MoltenDelete<CR>", desc = "Delete Molten Cell"},
-        { "<leader>mx", ":MoltenOpenInBrowser<CR>", desc = "Open Output In Browser"},
-        { "<leader>q", group = "quarto"},
-        { "<leader>qc", ":QuartoSend<CR>", desc = "Run Cell" },
-        { "<leader>qa", ":QuartoSendAbove<CR>", desc = "Run Cell And Above" },
-        { "<leader>qb", ":QuartoSendBelow<CR>", desc = "Run Cell And Below"},
-        { "<leader>qA", ":QuartoSendAll<CR>", desc = "Run All Cells" },
+        { "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm'<cr>", desc = "Toggle Terminal" },
+        { "<C-t>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "t" },
+        { "<localleader>m", group = "molten"},
+        { "<localleader>me", ":MoltenEvaluateOperator<CR>", desc = "Evaluate Operator"},
+        { "<localleader>mo", ":noautocmd MoltenEnterOutput<CR>:noautocmd MoltenEnterOutput<CR>", desc = "Enter Output Window"},
+        { "<localleader>mv", ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Execute Visual Selection", mode = "v"},
+				{ "<localleader>mi", ":MoltenInit<CR>", desc= "Initialize Kernel"},
+        { "<localleader>mr", ":MoltenRestart<CR>", desc = "Restart Kernel"},
+        { "<localleader>mc", ":MoltenHideOutput<CR>", desc = "Close Output Window"},
+        { "<localleader>md", ":MoltenDelete<CR>", desc = "Delete Molten Cell"},
+        { "<localleader>mx", ":MoltenOpenInBrowser<CR>", desc = "Open Output In Browser"},
+        { "<localleader>q", group = "quarto"},
+        { "<localleader>qc", ":QuartoSend<CR>", desc = "Run Cell" },
+        { "<localleader>qa", ":QuartoSendAbove<CR>", desc = "Run Cell And Above" },
+        { "<localleader>qb", ":QuartoSendBelow<CR>", desc = "Run Cell And Below"},
+        { "<localleader>qA", ":QuartoSendAll<CR>", desc = "Run All Cells" },
         -- Top Pickers & Explorer
         { "<leader><space>", function() snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() snacks.picker.buffers() end, desc = "Buffers" },
@@ -52,16 +47,16 @@ return {
         { "<leader>gL", function() snacks.picker.git_log_line() end, desc = "Git Log Line" },
         { "<leader>gs", function() snacks.picker.git_status() end, desc = "Git Status" },
         { "<leader>gS", function() snacks.picker.git_stash() end, desc = "Git Stash" },
-        { "<leader>gdv", ":DiffviewOpen<CR>", desc = "Git Diff View"},
         { "<leader>gf", function() snacks.picker.git_log_file() end, desc = "Git Log File" },
+        { "<leader>gdv", ":DiffviewOpen<CR>", desc = "Git Diff View"},
         -- Grep
         { "<leader>sb", function() snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sB", function() snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
         { "<leader>sg", function() snacks.picker.grep() end, desc = "Grep" },
         { "<leader>sw", function() snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
         -- search
-        { '<leader>s"', function() snacks.picker.registers() end, desc = "Registers" },
-        { '<leader>s/', function() snacks.picker.search_history() end, desc = "Search History" },
+        { "<leader>s\"", function() snacks.picker.registers() end, desc = "Registers" },
+        { "<leader>s/", function() snacks.picker.search_history() end, desc = "Search History" },
         { "<leader>sa", function() snacks.picker.autocmds() end, desc = "Autocmds" },
         { "<leader>sb", function() snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sc", function() snacks.picker.command_history() end, desc = "Command History" },
@@ -80,7 +75,6 @@ return {
         { "<leader>sq", function() snacks.picker.qflist() end, desc = "Quickfix List" },
         { "<leader>sR", function() snacks.picker.resume() end, desc = "Resume" },
         { "<leader>su", function() snacks.picker.undo() end, desc = "Undo History" },
-        { "<leader>uC", function() snacks.picker.colorschemes() end, desc = "Colorschemes" },
         -- LSP
         { "gd", function() snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
         { "gD", function() snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
@@ -109,12 +103,12 @@ return {
         { "<leader>dj", dap .. ".down()<CR>", desc = "Down" },
         { "<leader>dk", dap .. ".up()<CR>", desc = "Up" },
         -- LaTeX
-        { "<leader>li", ":VimtexInfo<CR>", desc = "Vimtex Info"},
-        { "<leader>lc", ":VimtexCompile<CR>", desc = "Vimtex Compile"},
-        { "<leader>ls", ":VimtexStop<CR>", desc = "Vimtex Stop"},
-        { "<leader>lC", ":VimtexClean!<CR>", desc = "Vimtex Clean All"},
-        { "<leader>lv", ":VimtexView<CR>", desc = "Vimtex View"},
-        { "<leader>lS", ":VimtexCompileSelected<CR>", desc = "Vimtex View"},
+        { "<localleader>li", ":VimtexInfo<CR>", desc = "Vimtex Info"},
+        { "<localleader>lc", ":VimtexCompile<CR>", desc = "Vimtex Compile"},
+        { "<localleader>ls", ":VimtexStop<CR>", desc = "Vimtex Stop"},
+        { "<localleader>lC", ":VimtexClean!<CR>", desc = "Vimtex Clean All"},
+        { "<localleader>lv", ":VimtexView<CR>", desc = "Vimtex View"},
+        { "<localleader>lS", ":VimtexCompileSelected<CR>", desc = "Vimtex View"},
       })
     end
   },
@@ -129,37 +123,30 @@ return {
     }
   },
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    ft = { 'markdown', 'quarto', 'codecompanion'},
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "quarto", "codecompanion"},
 		opts = {
 			enabled = false
 		}
   },
   {
-    'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
-    dependencies = 'hrsh7th/nvim-cmp',
+    dependencies = "hrsh7th/nvim-cmp",
     config = function()
-      require('nvim-autopairs').setup{
+      require("nvim-autopairs").setup{
         check_ts = true,
         ts_config = {
-          python = {'import_from_statement'}
+          python = {"import_from_statement"}
         },
-        disable_filetype = {'codecompanion', 'snacks_picker_input'}
+        disable_filetype = {"codecompanion", "snacks_picker_input"}
       }
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      local cmp = require("cmp")
       cmp.event:on(
-        'confirm_done',
+        "confirm_done",
         cmp_autopairs.on_confirm_done()
       )
-    end
-  },
-  'kevinhwang91/nvim-bqf',
-  {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
     end
   },
   {
@@ -170,10 +157,10 @@ return {
     },
   },
   {
-    'sindrets/diffview.nvim',
+    "sindrets/diffview.nvim",
   },
-  'kevinhwang91/nvim-hlslens',
-  'vladdoster/remember.nvim',
-  'folke/todo-comments.nvim',
-  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+  "kevinhwang91/nvim-hlslens",
+  "vladdoster/remember.nvim",
+  "folke/todo-comments.nvim",
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 }

@@ -8,7 +8,7 @@ return {
       local wk = require("which-key")
       local snacks = require("snacks")
       local dap = ":lua require('dap')"
-      local dapview = ":lua require('dapview')"
+      local dapview = ":lua require('dap-view')"
       wk.add({
         { "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm'<cr>", desc = "Toggle Terminal" },
         { "<C-t>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "t" },
@@ -47,7 +47,6 @@ return {
         { "<leader>gs", function() snacks.picker.git_status() end, desc = "Git Status" },
         { "<leader>gS", function() snacks.picker.git_stash() end, desc = "Git Stash" },
         { "<leader>gf", function() snacks.picker.git_log_file() end, desc = "Git Log File" },
-        { "<leader>gdv", ":DiffviewOpen<CR>", desc = "Git Diff View"},
         -- Grep
         { "<leader>sb", function() snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sB", function() snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
@@ -154,8 +153,30 @@ return {
     },
   },
   {
-    "sindrets/diffview.nvim",
+		"NeogitOrg/neogit",
+		cmd = "Neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",         -- required
+			"sindrets/diffview.nvim",        -- optional - Diff integration
+			"folke/snacks.nvim",             -- optional
+		},
+		opts = {
+			kind = "floating",
+			graph_style = "kitty"
+		},
   },
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    opts = {
+      view = {
+        default      = { disable_diagnostics = true },
+        file_history = { disable_diagnostics = true },
+        merge_tool   = { disable_diagnostics = true },
+      },
+    },
+  },
+	"kevinhwang91/nvim-bqf",
   "kevinhwang91/nvim-hlslens",
   "vladdoster/remember.nvim",
   "folke/todo-comments.nvim",

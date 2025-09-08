@@ -47,6 +47,7 @@ return {
         { "<leader>gs", function() snacks.picker.git_status() end, desc = "Git Status" },
         { "<leader>gS", function() snacks.picker.git_stash() end, desc = "Git Stash" },
         { "<leader>gf", function() snacks.picker.git_log_file() end, desc = "Git Log File" },
+				{ "<leader>G", ":Neogit<CR>", desc = "Open Neogit"},
         -- Grep
         { "<leader>sb", function() snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sB", function() snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
@@ -76,7 +77,7 @@ return {
         -- LSP
         { "gd", function() snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
         { "gD", function() snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
-        { "gr", function() snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+        { "gR", function() snacks.picker.lsp_references() end, nowait = true, desc = "References" },
         { "gI", function() snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
         { "gy", function() snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
         { "<leader>ss", function() snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },

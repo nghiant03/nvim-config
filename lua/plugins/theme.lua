@@ -41,11 +41,11 @@ return {
 
       --- You can override specific color groups to use other groups or a hex color
       --- function will be called with a ColorScheme table
-      on_colors = function(colors) end,
+      -- on_colors = function(colors) end,
 
       --- You can override specific highlights to use other groups or a hex color
       --- function will be called with a Highlights and ColorScheme table
-      on_highlights = function(highlights, colors) end,
+      -- on_highlights = function(highlights, colors) end,
     },
     config = function()
       vim.cmd("colorscheme tokyonight-night")
@@ -57,8 +57,8 @@ return {
 		opts = {
 			extension = {
 				lock = {
-					glyph = "", 
-					hl = "MiniIconsOrange"
+					glyph = "",
+					hl = "MiniIconsGrey"
 				}
 			}
 		}

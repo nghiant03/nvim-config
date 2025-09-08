@@ -51,6 +51,16 @@ return {
       vim.cmd("colorscheme tokyonight-night")
     end,
   },
-  'nvim-tree/nvim-web-devicons',
+  {
+		'nvim-mini/mini.icons',
+    version = "*",
+		opts = {
+			extension = {
+				lock = {
+					glyph = "", 
+					hl = "MiniIconsOrange"
+				}
+			}
+		}
+  },
 }
-

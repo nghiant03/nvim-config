@@ -23,13 +23,6 @@ return {
   },
   -- Enhancement
   {
-    'echasnovski/mini.nvim',
-    version = "*",
-    config = function()
-      require('mini.icons').setup()
-    end
-  },
-  {
     'vyfor/cord.nvim',
     build = ':Cord update',
     -- opts = {}

@@ -62,12 +62,16 @@ vim.api.nvim_create_autocmd("BufEnter", {
     if string.match(e.file, ".otter.") then
       return
     end
-    if require("molten.status").initialized() == "Molten" then
-      vim.fn.MoltenUpdateOption("virt_lines_off_by_1", true)
-      vim.fn.MoltenUpdateOption("virt_text_output", true)
-    else
-      vim.g.molten_virt_lines_off_by_1 = true
-      vim.g.molten_virt_text_output = true
+
+    if vim.fn.exists('*MoltenUpdateOption') == 1 then
+      local ok, status = pcall(require, "molten.status")
+      if ok and status.initialized() == "Molten" then
+        vim.fn.MoltenUpdateOption("virt_lines_off_by_1", true)
+        vim.fn.MoltenUpdateOption("virt_text_output", true)
+      else
+        vim.g.molten_virt_lines_off_by_1 = true
+        vim.g.molten_virt_text_output = true
+      end
     end
   end,
 })

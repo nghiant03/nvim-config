@@ -1,5 +1,4 @@
 return {
-	
   {
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
@@ -38,7 +37,7 @@ return {
             if cmp.visible() then
               cmp.select_next_item()
 						elseif luasnip.locally_jumpable(1) then
-							luasnip.jump(1)            
+							luasnip.jump(1)
 						else
               neotab.tabout()
             end

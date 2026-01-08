@@ -103,7 +103,7 @@ return {
         { "<localleader>li", ":VimtexInfo<CR>", desc = "Vimtex Info"},
         { "<localleader>lc", ":VimtexCompile<CR>", desc = "Vimtex Compile"},
         { "<localleader>ls", ":VimtexStop<CR>", desc = "Vimtex Stop"},
-        { "<localleader>lC", ":VimtexClean!<CR>", desc = "Vimtex Clean All"},
+        { "<localleader>lC", ":VimtexClean<CR>", desc = "Vimtex Clean All"},
         { "<localleader>lv", ":VimtexView<CR>", desc = "Vimtex View"},
         { "<localleader>lS", ":VimtexCompileSelected<CR>", desc = "Vimtex View"},
       })

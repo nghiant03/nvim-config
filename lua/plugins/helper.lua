@@ -158,25 +158,17 @@ return {
 		cmd = "Neogit",
 		dependencies = {
 			"nvim-lua/plenary.nvim",         -- required
-			"sindrets/diffview.nvim",        -- optional - Diff integration
 			"folke/snacks.nvim",             -- optional
 		},
 		opts = {
-			kind = "floating",
 			graph_style = "kitty"
 		},
   },
-  {
-    "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
-    opts = {
-      view = {
-        default      = { disable_diagnostics = true },
-        file_history = { disable_diagnostics = true },
-        merge_tool   = { disable_diagnostics = true },
-      },
-    },
-  },
+	{
+		"esmuellert/codediff.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		cmd = "CodeDiff",
+	},
 	"kevinhwang91/nvim-bqf",
   "kevinhwang91/nvim-hlslens",
   "vladdoster/remember.nvim",

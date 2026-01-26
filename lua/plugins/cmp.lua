@@ -1,12 +1,19 @@
 return {
   {
-    'hrsh7th/nvim-cmp',
+    'hrsh8th/nvim-cmp',
     event = "InsertEnter",
     config = function()
       local luasnip = require("luasnip")
       local cmp = require'cmp'
       local neotab = require("neotab")
 
+			cmp.event:on("menu_opened", function()
+				vim.b.copilot_suggestion_hidden = true
+			end)
+
+			cmp.event:on("menu_closed", function()
+				vim.b.copilot_suggestion_hidden = false
+			end)
 
       cmp.setup({
         snippet = {
@@ -49,8 +56,6 @@ return {
 							luasnip.jump(-1)
             end
           end,
-          ['<C-x><C-a>'] = require('minuet').make_cmp_map()
-
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
@@ -58,6 +63,7 @@ return {
           { name = 'luasnip' }, -- For luasnip users.
           -- { name = 'ultisnips' }, -- For ultisnips users.
           -- { name = 'snippy' }, -- For snippy users.
+					{ name = 'copilot'}
         }, {
           { name = 'buffer' },
         }),
@@ -67,7 +73,24 @@ return {
         },
         performance = {
           fetching_timeout = 2000,
-        }
+        },
+				sorting = {
+					priority_weight = 2,
+					comparators = {
+						require("copilot_cmp.comparators").prioritize,
+						-- Below is the default comparitor list and order for nvim-cmp
+						cmp.config.compare.offset,
+						-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+						cmp.config.compare.exact,
+						cmp.config.compare.score,
+						cmp.config.compare.recently_used,
+						cmp.config.compare.locality,
+						cmp.config.compare.kind,
+						cmp.config.compare.sort_text,
+						cmp.config.compare.length,
+						cmp.config.compare.order,
+					},
+				},
       })
 
       -- Set configuration for specific filetype.
@@ -98,6 +121,15 @@ return {
       })
    end
   },
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = "zbirenbaum/copilot.lua",
+		event = "InsertEnter",
+		config = function ()
+			require("copilot").setup()
+			require("copilot_cmp").setup()
+		end
+	},
   {
     'hrsh7th/cmp-nvim-lsp',
     event = "InsertEnter",

@@ -197,6 +197,13 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		opts = {
+			remote = {
+				copy_dirs = {
+					config = {
+						dirs = {"lua", "ftplugin", "init.lua"}, -- Directories that should be copied over. "*" means all directories. To specify a subset, use a list like {"lazy", "mason"} where "lazy", "mason" are subdirectories
+					}
+				}
+			},
 			client_callback = function(port, _)
 				vim.notify("Opening Kitty…", vim.log.levels.INFO, { title = "remote-nvim" })
 

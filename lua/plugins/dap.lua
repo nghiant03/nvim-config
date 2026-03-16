@@ -74,6 +74,7 @@ return {
               return '/usr/bin/python'
             end
           end;
+					justMyCode = false,
         },
       }
       dap.configurations.cpp = {

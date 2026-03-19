@@ -66,7 +66,7 @@ return {
         }
       })
 
-      vim.lsp.enable({'lua_ls', 'pyright', 'ruff', 'rust_analyzer', 'ltex_plus', 'texlab'})
+      vim.lsp.enable({'lua_ls', 'pyright', 'ruff', 'rust_analyzer', 'ltex_plus', 'texlab', 'gopls'})
 
       require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations

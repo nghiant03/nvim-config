@@ -51,8 +51,8 @@ return {
       })
 
       vim.lsp.config("ltex_plus", {
+			 filetypes = { 'bib', 'tex', 'latex', 'gitcommit' },
 			 on_attach = function(_, _)
-					 -- rest of your on_attach process.
 					 require("ltex_extra").setup{}
 			 end,
         settings = {

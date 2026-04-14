@@ -20,4 +20,9 @@ return {
       vim.g.vimtex_quickfix_mode = 0
     end
   },
+	{
+    "barreiroleo/ltex_extra.nvim",
+    ft = { "markdown", "tex" },
+    dependencies = { "neovim/nvim-lspconfig" },
+	}
 }

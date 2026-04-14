@@ -51,6 +51,10 @@ return {
       })
 
       vim.lsp.config("ltex_plus", {
+			 on_attach = function(_, _)
+					 -- rest of your on_attach process.
+					 require("ltex_extra").setup{}
+			 end,
         settings = {
           ltex = {
             additionalRules = {

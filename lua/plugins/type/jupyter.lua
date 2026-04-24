@@ -1,4 +1,8 @@
 vim.g.python3_host_prog=vim.fn.expand("~/miniforge3/envs/nvim/bin/python3")
+local conda_bin = vim.fn.expand("~/miniforge3/envs/nvim/bin")
+if vim.fn.isdirectory(conda_bin) == 1 and not string.find(vim.env.PATH or "", conda_bin, 1, true) then
+  vim.env.PATH = conda_bin .. ":" .. (vim.env.PATH or "")
+end
 return {
   {
     "benlubas/molten-nvim",

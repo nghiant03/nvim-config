@@ -40,6 +40,9 @@ return {
             end
             fallback()
           end),
+          ['<C-v>'] = cmp.mapping.complete({
+            config = { sources = { { name = 'copilot' } } },
+          }),
           ['<Tab>'] = function()
             if cmp.visible() then
               cmp.select_next_item()
@@ -63,8 +66,8 @@ return {
           { name = 'luasnip' }, -- For luasnip users.
           -- { name = 'ultisnips' }, -- For ultisnips users.
           -- { name = 'snippy' }, -- For snippy users.
-					{ name = 'copilot'}
         }, {
+          { name = 'copilot', group_index = 2 },
           { name = 'buffer' },
         }),
           experimental = {
@@ -77,10 +80,7 @@ return {
 				sorting = {
 					priority_weight = 2,
 					comparators = {
-						require("copilot_cmp.comparators").prioritize,
-						-- Below is the default comparitor list and order for nvim-cmp
 						cmp.config.compare.offset,
-						-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
 						cmp.config.compare.exact,
 						cmp.config.compare.score,
 						cmp.config.compare.recently_used,

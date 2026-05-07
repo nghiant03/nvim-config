@@ -32,12 +32,12 @@ local default_notebook = [[
 ]]
 
 local function new_notebook(filename)
-	local path = filename .. ".ipynb"
+	local path = vim.fn.fnamemodify(filename, ":e") == "ipynb" and filename or (filename .. ".ipynb")
 	local file = io.open(path, "w")
 	if file then
 		file:write(default_notebook)
 		file:close()
-		vim.cmd("edit " .. path)
+		vim.cmd("edit " .. vim.fn.fnameescape(path))
 	else
 		print("Error: Could not open new notebook file for writing.")
 	end

@@ -1,4 +1,4 @@
-if vim.g.is_server then
+if vim.g.is_ssh then
     return {}
 end
 

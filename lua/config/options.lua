@@ -1,4 +1,7 @@
 -- :help options
+if vim.g.is_ssh then
+	vim.g.clipboard = "osc52"
+end
 vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 2                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp

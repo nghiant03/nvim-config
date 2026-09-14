@@ -1,46 +1,19 @@
-local opts = { noremap = true, silent = true }
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
--- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Add cursor click to jump list
-keymap('n', '<LeftMouse>', "m'<LeftMouse>", opts)
-
--- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+local map = vim.keymap.set
+map("n", "<C-h>",        "<C-w>h",                		  { desc = "Focus Left Window" })
+map("n", "<C-j>",        "<C-w>j",                		  { desc = "Focus Lower Window" })
+map("n", "<C-k>",        "<C-w>k",                		  { desc = "Focus Upper Window" })
+map("n", "<C-l>",        "<C-w>l",                		  { desc = "Focus Right Window" })
+map("n", "<C-Up>",       "<cmd>resize -2<cr>",    		  { desc = "Decrease Window Height" })
+map("n", "<C-Down>",     "<cmd>resize +2<cr>",    		  { desc = "Increase Window Height" })
+map("n", "<C-Left>",     "<cmd>vertical resize -2<cr>", { desc = "Narrow Window" })
+map("n", "<C-Right>",    "<cmd>vertical resize +2<cr>", { desc = "Widen Window" })
+map("n", "<S-l>",        "<cmd>bnext<cr>",        	    { desc = "Next Buffer" })
+map("n", "<S-h>",        "<cmd>bprevious<cr>",    		  { desc = "Previous Buffer" })
+map("n", "<LeftMouse>",  "m'<LeftMouse>",         		  { desc = "Click (Add to Jumplist)" })
+-- Visual
+map("v", "<",            "<gv",                   	    { desc = "Indent Left and Reselect" })
+map("v", ">",            ">gv",                   		  { desc = "Indent Right and Reselect" })
+map("v", "p",            '"_dP',                  		  { desc = "Paste Without Yanking" })
+-- Visual block
+map("x", "J",            ":move '>+1<CR>gv-gv",   		  { desc = "Move Selection Down" })
+map("x", "K",            ":move '<-2<CR>gv-gv",   		  { desc = "Move Selection Up" })

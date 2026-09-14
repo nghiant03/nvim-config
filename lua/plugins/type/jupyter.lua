@@ -6,71 +6,23 @@ end
 
 return {
   {
-    "benlubas/molten-nvim",
-    event = "BufReadCmd *.ipynb",
-    build = ":UpdateRemotePlugins",
-    init = function()
-      vim.g.molten_image_provider = "snacks.nvim"
-      vim.g.molten_output_win_max_height = 20
-      vim.g.molten_auto_open_output = false
-      vim.g.molten_wrap_output = true
-      vim.g.molten_virt_text_output = true
-      vim.g.molten_virt_lines_off_by_1 = true
-
-      -- Toggle molten virt-text behavior when leaving an .ipynb buffer for a .py
-      -- (jove keeps `# %%` cell markers, so virt_lines_off_by_1 must stay true on .ipynb).
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "*.py",
-        callback = function(e)
-          if string.match(e.file, ".otter.") then
-            return
-          end
-          if vim.fn.exists("*MoltenUpdateOption") == 1 then
-            local ok, status = pcall(require, "molten.status")
-            if ok and status.initialized() == "Molten" then
-              vim.fn.MoltenUpdateOption("virt_lines_off_by_1", false)
-              vim.fn.MoltenUpdateOption("virt_text_output", false)
-            else
-              vim.g.molten_virt_lines_off_by_1 = false
-              vim.g.molten_virt_text_output = false
-            end
-          end
-        end,
-      })
-
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = { "*.qmd", "*.md", "*.ipynb" },
-        callback = function(e)
-          if string.match(e.file, ".otter.") then
-            return
-          end
-          if vim.fn.exists("*MoltenUpdateOption") == 1 then
-            local ok, status = pcall(require, "molten.status")
-            if ok and status.initialized() == "Molten" then
-              vim.fn.MoltenUpdateOption("virt_lines_off_by_1", true)
-              vim.fn.MoltenUpdateOption("virt_text_output", true)
-            else
-              vim.g.molten_virt_lines_off_by_1 = true
-              vim.g.molten_virt_text_output = true
-            end
-          end
-        end,
-      })
-    end,
-  },
-  {
     "nghiant03/jove.nvim",
     lazy = false,
     priority = 100,
-    dependencies = { "benlubas/molten-nvim" },
     opts = {
       auto_kernel = true,
       auto_import_outputs = true,
       auto_export_outputs = true,
+      cell_motions = false,
+      ui = {
+        border_hl = { fg = "#ff9e64" },
+      },
       keymap = {
-        run_cell = "<localleader>x",
-        next_cell = "]h",
-        prev_cell = "[h",
+        run_cell        = "<localleader>jc",
+        run_and_advance = "<localleader>jx",
+        run_selection   = "<localleader>jv",
+        next_cell       = "]h",
+        prev_cell       = "[h",
       },
     },
   },

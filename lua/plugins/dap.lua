@@ -1,7 +1,24 @@
 return {
   {
     'mfussenegger/nvim-dap',
-    keys = "<leader>d",
+    keys = {
+      { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "DAP Set Conditional Breakpoint" },
+      { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+      { "<leader>dc", function() require("dap").continue() end, desc = "DAP Run/Continue" },
+      { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "DAP Run to Cursor" },
+      { "<leader>dg", function() require("dap").goto_() end,         desc = "DAP Go to Line (No Execute)" },
+      { "<leader>dl", function() require("dap").run_last() end,     desc = "DAP Run Last" },
+      { "<leader>dP", function() require("dap").pause() end,        desc = "DAP Pause" },
+      { "<leader>dr", function() require("dap").repl.toggle() end,  desc = "Toggle REPL" },
+      { "<leader>ds", function() require("dap").session() end,      desc = "DAP Session" },
+      { "<leader>dt", function() require("dap").terminate() end,    desc = "DAP Terminate" },
+      { "<leader>du", function() require("dap-view").toggle({}) end, desc = "DAP UI" },
+      { "<leader>dj", function() require("dap").down() end, desc = "DAP Down" },
+      { "<leader>dk", function() require("dap").up() end,   desc = "DAP Up" },
+      { "<M-i>", function() require("dap").step_into() end, desc = "Step Into" },
+      { "<M-o>", function() require("dap").step_over() end, desc = "Step Over" },
+      { "<M-e>", function() require("dap").step_out() end,  desc = "Step Out" },
+    },
     dependencies = {
 			'igorlfs/nvim-dap-view',
 			'theHamsta/nvim-dap-virtual-text'

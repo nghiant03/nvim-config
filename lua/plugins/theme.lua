@@ -1,12 +1,5 @@
 return {
   {
-    "folke/snacks.nvim",
-    opts = {
-      notifier = {
-      }
-    }
-  },
-  {
     'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,

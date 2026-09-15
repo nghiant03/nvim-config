@@ -8,13 +8,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "ipykernel>=7.3.0",
     "jupytext>=1.19.5",
     "pynvim>=0.6.0",
 ]
-
-[project.scripts]
-nvim = "nvim:main"
-
-[build-system]
-requires = ["uv_build>=0.12.13,<0.13.0"]
-build-backend = "uv_build"

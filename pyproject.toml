@@ -1,0 +1,20 @@
+[project]
+name = "nvim"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "nghiant", email = "nghiant@mailbox.org" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "jupytext>=1.19.5",
+    "pynvim>=0.6.0",
+]
+
+[project.scripts]
+nvim = "nvim:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"

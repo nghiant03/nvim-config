@@ -20,6 +20,8 @@ return {
   {
     "folke/snacks.nvim",
     version = '*',
+		lazy = false,
+		priority = 1000,
     keys = {
       { "<leader>t", function() require("snacks").terminal.toggle() end, desc = "Toggle Terminal" },
       -- Top pickers & explorer

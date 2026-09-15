@@ -4,7 +4,7 @@ if vim.g.is_ssh then
 end
 vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 2                           -- more space in the neovim command line for displaying messages
-vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
 vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern

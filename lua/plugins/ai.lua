@@ -1,10 +1,11 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
-		requires = {
-			"copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
-		},
 		cmd = "Copilot",
+		opts = {
+			suggestion = { enabled = false },
+			panel = { enabled = false },
+		},
 	},
 	{
 		"nickjvandyke/opencode.nvim",

@@ -18,17 +18,10 @@ return {
     }
   },
   {
-    "akinsho/toggleterm.nvim",
-    opts = { direction = 'float' },
-    keys = {
-      { "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm'<cr>", desc = "Toggle Terminal" },
-      { "<C-t>",     "<cmd>ToggleTerm<cr>",                 desc = "Toggle Terminal", mode = "t" },
-    },
-  },
-  {
     "folke/snacks.nvim",
     version = '*',
     keys = {
+      { "<leader>t", function() require("snacks").terminal.toggle() end, desc = "Toggle Terminal" },
       -- Top pickers & explorer
       { "<leader><space>", function() require("snacks").picker.smart() end, desc = "Smart Find Files" },
       { "<leader>,",       function() require("snacks").picker.buffers() end, desc = "Buffers" },
@@ -87,6 +80,15 @@ return {
       explorer = { replace_netrw = true },
       picker = { sources = { explorer = {} } },
       notifier = {},
+      terminal = {
+        win = {
+          position = "bottom",
+          keys = {
+            term_normal = false,
+            term_hide = { "<esc><esc>", "hide", mode = { "n", "t" }, desc = "Hide Terminal" },
+          },
+        },
+      },
     },
   },
   {

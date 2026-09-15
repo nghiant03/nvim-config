@@ -44,7 +44,7 @@ return {
       { "<leader>gL", function() require("snacks").picker.git_log_line() end, desc = "Git Log Line" },
       { "<leader>gs", function() require("snacks").picker.git_status() end, desc = "Git Status" },
       { "<leader>gS", function() require("snacks").picker.git_stash() end, desc = "Git Stash" },
-      -- search (<leader>/ kept as documented alias of <leader>sg, identical desc "Grep")
+      -- search
       { "<leader>sg", function() require("snacks").picker.grep() end, desc = "Grep" },
       { "<leader>sw", function() require("snacks").picker.grep_word() end, desc = "Grep Word", mode = { "n", "x" } },
       { "<leader>s\"",  function() require("snacks").picker.registers() end, desc = "Registers" },
@@ -71,9 +71,6 @@ return {
       -- LSP pickers
       { "gd", function() require("snacks").picker.lsp_definitions() end, desc = "Goto Definition" },
       { "gD", function() require("snacks").picker.lsp_declarations() end, desc = "Goto Declaration" },
-      { "gR", function() require("snacks").picker.lsp_references() end, nowait = true, desc = "References" },
-      { "gI", function() require("snacks").picker.lsp_implementations() end, desc = "Goto Implementation" },
-      { "gy", function() require("snacks").picker.lsp_type_definitions() end, desc = "Goto Type Definition" },
       { "<leader>ss", function() require("snacks").picker.lsp_symbols() end, desc = "LSP Symbols" },
       { "<leader>sS", function() require("snacks").picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
     },

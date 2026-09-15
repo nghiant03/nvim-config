@@ -8,7 +8,6 @@ return {
         { "<leader>g", group = "git" },
         { "<leader>s", group = "search" },
         { "<leader>d", group = "debug" },
-        { "<leader>x", group = "diagnostics" },
         { "<leader>c", group = "code" },
         { "<leader>a", group = "ai" },
         { "<localleader>j", group = "jove" },

@@ -16,28 +16,36 @@ return {
     },
   },
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "quarto", "codecompanion"},
-		opts = {
-			enabled = false
-		}
-  },
-	{
-		"hat0uma/csvview.nvim",
-		opts = {
-			parser = { comments = { "#", "//" } },
-			keymaps = {
-				textobject_field_inner = { "if", mode = { "o", "x" } },
-				textobject_field_outer = { "af", mode = { "o", "x" } },
-				jump_next_field_end = { "<Tab>", mode = { "n", "v" } },
-				jump_prev_field_end = { "<S-Tab>", mode = { "n", "v" } },
-				jump_next_row = { "<Enter>", mode = { "n", "v" } },
-				jump_prev_row = { "<S-Enter>", mode = { "n", "v" } },
-			},
+		"stevearc/aerial.nvim",
+		event = "LazyFile",
+		opts = function()
+			local opts = {
+				attach_mode = "global",
+				backends = { "lsp", "treesitter", "markdown", "man" },
+				show_guides = true,
+				layout = {
+					resize_to_content = false,
+					win_opts = {
+						winhl = "Normal:NormalFloat,FloatBorder:NormalFloat,SignColumn:SignColumnSB",
+						signcolumn = "yes",
+						statuscolumn = " ",
+					},
+				},
+				-- stylua: ignore
+				guides = {
+					mid_item   = "├╴",
+					last_item  = "└╴",
+					nested_top = "│ ",
+					whitespace = "  ",
+				},
+			}
+			return opts
+		end,
+		keys = {
+			{ "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial: Toggle Symbols Panel" },
 		},
-		cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
 	},
-  {
+	{
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()

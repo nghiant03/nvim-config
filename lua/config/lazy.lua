@@ -30,7 +30,6 @@ require("lazy").setup({
     },
 		{
       import = "plugins.type",
-      enabled = not vim.g.is_ssh
     },
   },
   -- Configure any other settings here. See the documentation for more details.

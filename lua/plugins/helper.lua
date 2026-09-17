@@ -17,7 +17,6 @@ return {
   },
   {
 		"stevearc/aerial.nvim",
-		event = "LazyFile",
 		opts = function()
 			local opts = {
 				attach_mode = "global",

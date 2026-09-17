@@ -10,9 +10,14 @@ return {
       "fang2hou/blink-copilot",
     },
     opts = {
-      -- C-y accepts, C-n/C-p navigate, Tab/S-Tab jump through snippets.
-      -- Tab falls back to neotab when no snippet jump is available.
-      keymap = { preset = "default" },
+      keymap = {
+        preset = "default",
+        ["<Tab>"] = {
+          "snippet_forward",
+          function() return require("sidekick").nes_jump_or_apply() end,
+          "fallback",
+        },
+      },
       snippets = { preset = "luasnip" },
       completion = {
         accept = { auto_brackets = { enabled = true } },

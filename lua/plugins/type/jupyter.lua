@@ -17,11 +17,12 @@ return {
         border_hl = { fg = "#ff9e64" },
       },
       keymap = {
-        run_cell        = "<localleader>jc",
-        run_and_advance = "<localleader>jx",
-        run_selection   = "<localleader>jv",
-        next_cell       = "]h",
-        prev_cell       = "[h",
+        run_cell        			= "<localleader>jc",
+        run_and_advance 			= "<localleader>jx",
+        run_selection   			= "<localleader>jv",
+        next_cell       			= "]h",
+        prev_cell       			= "[h",
+				toggle_follow_running = "<localleader>jf",
       },
     },
     keys = {
@@ -37,9 +38,7 @@ return {
       { "<localleader>jd", function() require("jove.output").clear_at_cursor(0) end,  desc = "Jove: Clear Output" },
       { "<localleader>jD", function() require("jove.output").clear(0) end,            desc = "Jove: Clear All Outputs" },
       { "<localleader>jR", function() require("jove.buffer").reload(0) end,           desc = "Jove: Reload Notebook" },
-      { "<localleader>jV", function() require("jove.ui.vars").toggle(0) end,          desc = "Jove: Toggle Variables" },
-      { "<localleader>jK", function() require("jove.ui.panel").show_info(0) end,      desc = "Jove: Kernel Panel" },
-      { "<localleader>jt", function() require("jove.toc").pick(0) end,                desc = "Jove: Table of Contents" },
+      { "<localleader>jb", function() require("jove.ui.sidebar").toggle(0) end,       desc = "Jove: Toggle Sidebar" },
     },
   },
 }

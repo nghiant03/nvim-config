@@ -1,8 +1,3 @@
-local venv_bin = vim.fn.expand("$XDG_CONFIG_HOME/nvim/.venv/bin")
-if vim.fn.isdirectory(venv_bin) == 1 and not string.find(vim.env.PATH or "", venv_bin, 1, true) then
-  vim.env.PATH = venv_bin .. ":" .. (vim.env.PATH or "")
-end
-
 return {
   {
     "nghiant03/jove.nvim",
@@ -15,6 +10,14 @@ return {
       cell_motions = false,
       ui = {
         border_hl = { fg = "#ff9e64" },
+      },
+      lsp = {
+        auto_attach = true,
+        servers = {
+          python = { "pyright" },
+          javascript = { "ts_ls" },
+          typescript = { "ts_ls" },
+        },
       },
       keymap = {
         run_cell        			= "<localleader>jc",

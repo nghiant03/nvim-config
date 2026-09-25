@@ -68,11 +68,15 @@ return {
 		"NeogitOrg/neogit",
 		cmd = "Neogit",
 		dependencies = {
-			"nvim-lua/plenary.nvim",         -- required
 			"folke/snacks.nvim",             -- optional
 		},
 		opts = {
-			graph_style = "kitty"
+			graph_style = "kitty",
+			disble_hint = true,
+			process_spinner = true,
+			commit_editor = {
+				staged_diff_split_kind = "auto"
+			}
 		},
 		keys = {
 			{ "<leader>G", "<cmd>Neogit<cr>", desc = "Neogit" },

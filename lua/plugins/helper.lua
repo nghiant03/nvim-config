@@ -72,7 +72,7 @@ return {
 		},
 		opts = {
 			graph_style = "kitty",
-			disble_hint = true,
+			disable_hint = true,
 			process_spinner = true,
 			commit_editor = {
 				staged_diff_split_kind = "auto"
